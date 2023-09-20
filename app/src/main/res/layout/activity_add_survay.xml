@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/background_color"
+    android:layout_height="match_parent"
+    tools:context=".AddSurvayActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:src="@drawable/baseline_arrow_back_24"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Add Enquiry"
+            android:textStyle="bold"
+            android:textColor="@color/light_blue"
+            android:textSize="22sp"/>
+
+        <ImageView
+            android:id="@+id/ivShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/baseline_share_24"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:id="@+id/tvExisting"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="Existing"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/light_blue"
+        android:textAllCaps="false"
+        android:layout_marginStart="15dp"
+        android:paddingVertical="10dp"
+        android:textSize="14sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tvNew"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="New"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/search_box"
+        android:textAllCaps="false"
+        android:layout_marginEnd="15dp"
+        android:textSize="15sp"
+        android:padding="11dp"
+        android:layout_marginTop="22dp"/>
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvExisting"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        android:hint="Name"
+        android:text="Shrabani"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="15dp"
+        android:inputType="textPersonName"
+        android:background="@drawable/search_box"/>
+
+    <EditText
+        android:id="@+id/etMobileNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        android:maxLength="10"
+        android:text="1234567890"
+        android:hint="Mobile Number"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="15dp"
+        android:inputType="number"
+        android:background="@drawable/search_box"/>
+
+    <EditText
+        android:id="@+id/etEmailId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etMobileNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        android:text="test@gmail.com"
+        android:hint="Email ID"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="15dp"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/search_box"/>
+
+    <EditText
+        android:id="@+id/etGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etEmailId"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        android:hint="Gender"
+        android:text="Female"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="15dp"
+        android:inputType="text"
+        android:background="@drawable/search_box"/>
+
+    <EditText
+        android:id="@+id/etCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etGender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        android:hint="City"
+        android:text="Bangalore"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="15dp"
+        android:inputType="text"
+        android:background="@drawable/search_box"/>
+
+    <EditText
+        android:id="@+id/etPinCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="6"
+        app:layout_constraintTop_toBottomOf="@id/etCity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        android:hint="Pin code"
+        android:text="123456"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="15dp"
+        android:inputType="number"
+        android:background="@drawable/search_box"/>
+
+    <EditText
+        android:id="@+id/etFullAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etPinCode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        android:hint="Full Address"
+        android:text="Karnataka,Bangalore"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="15dp"
+        android:inputType="text"
+        android:background="@drawable/search_box"/>
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etFullAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        android:hint="Description"
+        android:text=""
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="15dp"
+        android:inputType="text"
+        android:background="@drawable/search_box"/>
+
+    <TextView
+        android:id="@+id/btnSIgnUp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Save"
+        android:background="@drawable/rounded_box"
+        android:backgroundTint="@color/red"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="15dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

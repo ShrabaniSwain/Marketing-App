@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".AddItemReturnActivty">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/signUPToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:src="@drawable/baseline_arrow_back_24"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Add Item To Return"
+            android:textStyle="bold"
+            android:textColor="@color/light_blue"
+            android:textSize="22sp"/>
+
+        <ImageView
+            android:id="@+id/ivShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/baseline_share_24"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/etItemName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/signUPToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:hint="Item Name"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="15dp"
+        android:inputType="textPersonName"
+        android:background="@drawable/search_box"/>
+
+    <EditText
+        android:id="@+id/etQuantity"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etItemName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:hint="Quantity"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:layout_marginStart="15dp"
+        android:inputType="textPersonName"
+        android:background="@drawable/search_box"/>
+
+    <TextView
+        android:id="@+id/etUnit"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etItemName"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:text="Unit"
+        android:padding="13dp"
+        android:importantForAutofill="no"
+        android:textCursorDrawable="@null"
+        android:textColor="@color/black"
+        android:layout_marginEnd="15dp"
+        android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+        android:background="@drawable/search_box"/>
+
+    <EditText
+        android:id="@+id/etPrice"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etQuantity"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:hint="Rate(Price/Unit)"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:layout_marginStart="15dp"
+        android:inputType="number"
+        android:background="@drawable/search_box"/>
+
+    <TextView
+        android:id="@+id/tvTax"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etUnit"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:text="With Tax"
+        android:padding="13dp"
+        android:importantForAutofill="no"
+        android:textCursorDrawable="@null"
+        android:textColor="@color/black"
+        android:layout_marginEnd="15dp"
+        android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+        android:background="@drawable/search_box"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/etPrice"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTotalTaxes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="@string/totals_taxes"/>
+
+        <View
+            android:id="@+id/vLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@id/tvTotalTaxes"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="8dp"
+            android:background="#C4C4C4" />
+
+        <TextView
+            android:id="@+id/tvSubTotalTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/vLine"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/text_Gray"
+            android:textSize="15sp"
+            android:text="Subtotal(Rate * Qnt)"/>
+
+        <TextView
+            android:id="@+id/tvSubTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/vLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="₹ 0"/>
+
+        <TextView
+            android:id="@+id/tvDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvSubTotalTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/text_Gray"
+            android:textSize="16sp"
+            android:text="Discount"/>
+
+        <EditText
+            android:id="@+id/tvDiscountPercentage"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/tvSubTotalPrice"
+            app:layout_constraintRight_toLeftOf="@id/tvDiscountAmount"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp"
+            android:hint="0"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:background="@drawable/search_box"
+            android:textStyle="bold"
+            android:inputType="number"
+            android:drawableEnd="@drawable/baseline_percent_24"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/tvDiscountAmount"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/tvSubTotalPrice"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp"
+            android:hint="0.00"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:background="@drawable/search_box"
+            android:textStyle="bold"
+            android:inputType="numberDecimal"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/baseline_currency_rupee_24"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/tvTaxPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvDiscount"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/text_Gray"
+            android:textSize="16sp"
+            android:text="Tax %"/>
+
+        <TextView
+            android:id="@+id/tvGst"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/tvDiscountPercentage"
+            app:layout_constraintRight_toLeftOf="@id/tvDiscountAmount"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/text_Gray"
+            android:textSize="14sp"
+            android:text="GST@18%"
+            android:background="@drawable/search_box"
+            android:textStyle="bold"
+            android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/tvTaxAmount"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/tvDiscountAmount"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp"
+            android:hint="0.00"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:background="@drawable/search_box"
+            android:textStyle="bold"
+            android:drawablePadding="10dp"
+            android:inputType="numberDecimal"
+            android:drawableStart="@drawable/baseline_currency_rupee_24"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/tvTotalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTaxPercent"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="35dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="Total Amount:"/>
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTaxPercent"
+            android:layout_marginTop="25dp"
+            android:drawableStart="@drawable/baseline_currency_rupee_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="20dp"
+            android:textStyle="bold"
+            android:inputType="number"
+            android:textSize="18sp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/btnSave2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/light_blue"
+        android:text="Save"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

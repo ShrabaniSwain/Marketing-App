@@ -1,0 +1,1187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".ReportsActivity">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:src="@drawable/baseline_arrow_back_24"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Report"
+            android:textStyle="bold"
+            android:textColor="@color/light_blue"
+            android:textSize="22sp"/>
+
+        <ImageView
+            android:id="@+id/ivShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/baseline_person_24"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintSale"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tvSales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:text="Sales"
+        android:backgroundTint="@color/white"
+        android:padding="14dp"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+        android:layout_marginHorizontal="15dp"
+        android:background="@drawable/search_box"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/salesCardView"
+        app:cardCornerRadius="8dp"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/card_background_color"
+        android:layout_marginHorizontal="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/saleBox"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/light_blue"
+                android:background="@drawable/search_box"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvSalesDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="18sp"
+                android:text="Sales: "
+                android:paddingVertical="12dp"
+                android:paddingStart="14dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                />
+
+                <TextView
+                    android:id="@+id/tvSalesTotalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/tvSalesDetails"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="18sp"
+                    android:text="₹ 35245"
+                    android:paddingVertical="14dp"
+                    android:textStyle="bold"
+                    android:textColor="#BADAF3"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@drawable/up_arrow"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search Name"
+                android:inputType="text"
+                android:maxLines="1"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/baseline_search_24"
+                android:background="@drawable/search_box"
+                android:textSize="16sp"
+                android:padding="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/saleBox"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/tvSaleDate"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="16sp"
+                android:text="Date"
+                android:gravity="center"
+                android:padding="12dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/search_box"
+                android:backgroundTint="@color/light_blue"
+                app:layout_constraintTop_toBottomOf="@id/etSearch"
+                />
+
+            <TextView
+                android:id="@+id/tvSaleDateRange"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/tvSaleDate"
+                android:textSize="16sp"
+                android:text="Date Range"
+                android:gravity="center"
+                android:padding="12dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="25dp"
+                android:background="@drawable/search_box"
+                app:layout_constraintTop_toBottomOf="@id/etSearch"
+                />
+
+            <TextView
+                android:id="@+id/tvSaleTodayDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="15sp"
+                android:text="04 Sep 2022"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dp"
+                android:drawablePadding="10dp"
+                android:layout_marginStart="10dp"
+                android:drawableStart="@drawable/baseline_calendar_month_24"
+                android:background="@drawable/search_box"
+                app:layout_constraintTop_toBottomOf="@id/tvSaleDate"
+                />
+
+            <TextView
+                android:id="@+id/tvSaleTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSaleDate"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="25dp"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tvSaleSelectDateRange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:text="04 Sep 2022"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dp"
+                android:drawablePadding="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawableStart="@drawable/baseline_calendar_month_24"
+                android:background="@drawable/search_box"
+                app:layout_constraintTop_toBottomOf="@id/tvSaleDate"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvSaleTodayDate"
+                android:text="No data found"
+                android:textStyle="normal"
+                android:textColor="@color/text_Gray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSalesDetails"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/tvSaleTodayDate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintStock"
+        app:layout_constraintTop_toBottomOf="@id/constraintSale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvStock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:backgroundTint="@color/white"
+        android:text="Stock"
+        android:textStyle="normal"
+        android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+        android:padding="14dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="15dp"
+        android:background="@drawable/search_box"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/StockCardView"
+            app:cardCornerRadius="8dp"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:backgroundTint="@color/card_background_color"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/stockBox"
+                    android:layout_width="match_parent"
+                    android:backgroundTint="@color/light_blue"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tvstockDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textSize="18sp"
+                        android:text="Stock: "
+                        android:paddingVertical="12dp"
+                        android:paddingStart="14dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvstockTotalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@id/tvstockDetails"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textSize="18sp"
+                        android:text="₹ 35245"
+                        android:paddingVertical="14dp"
+                        android:textStyle="bold"
+                        android:textColor="#BADAF3"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginEnd="14dp"
+                        android:layout_marginTop="14dp"
+                        android:src="@drawable/up_arrow"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <EditText
+                    android:id="@+id/etstockSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Search Name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/baseline_search_24"
+                    android:background="@drawable/search_box"
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/stockBox"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/tvstockDate"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="16sp"
+                    android:text="Date"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/search_box"
+                    android:backgroundTint="@color/light_blue"
+                    app:layout_constraintTop_toBottomOf="@id/etstockSearch"
+                    />
+
+                <TextView
+                    android:id="@+id/tvstockDateRange"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/tvstockDate"
+                    android:textSize="16sp"
+                    android:text="Date Range"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="25dp"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toBottomOf="@id/etstockSearch"
+                    />
+
+                <TextView
+                    android:id="@+id/tvstockTodayDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="15sp"
+                    android:text="04 Sep 2022"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:drawablePadding="10dp"
+                    android:layout_marginStart="10dp"
+                    android:drawableStart="@drawable/baseline_calendar_month_24"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toBottomOf="@id/tvstockDate"
+                    />
+
+                <TextView
+                    android:id="@+id/tvStockTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="To"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvstockDate"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="25dp"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvstockSelectDateRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="15sp"
+                    android:text="04 Sep 2022"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:drawablePadding="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:drawableStart="@drawable/baseline_calendar_month_24"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toBottomOf="@id/tvstockDate"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tvstockTodayDate"
+                    android:text="No data found"
+                    android:textStyle="normal"
+                    android:textColor="@color/text_Gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvstockDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tvstockTodayDate"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintReturn"
+        app:layout_constraintTop_toBottomOf="@id/constraintStock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvReturn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:text="Return"
+        android:backgroundTint="@color/white"
+        android:textStyle="normal"
+        android:padding="14dp"
+        android:textColor="@color/black"
+        android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+        android:layout_marginHorizontal="15dp"
+        android:background="@drawable/search_box"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/returnCardView"
+            app:cardCornerRadius="8dp"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:backgroundTint="@color/card_background_color"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/returnBox"
+                    android:layout_width="match_parent"
+                    android:backgroundTint="@color/light_blue"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tvreturnDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textSize="18sp"
+                        android:text="Return: "
+                        android:paddingVertical="12dp"
+                        android:paddingStart="14dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvreturnTotalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@id/tvreturnDetails"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textSize="18sp"
+                        android:text="₹ 35245"
+                        android:paddingVertical="14dp"
+                        android:textStyle="bold"
+                        android:textColor="#BADAF3"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginEnd="14dp"
+                        android:layout_marginTop="14dp"
+                        android:src="@drawable/up_arrow"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <EditText
+                    android:id="@+id/etreturnSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Search Name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/baseline_search_24"
+                    android:background="@drawable/search_box"
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/returnBox"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/tvreturnDate"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="16sp"
+                    android:text="Date"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/search_box"
+                    android:backgroundTint="@color/light_blue"
+                    app:layout_constraintTop_toBottomOf="@id/etreturnSearch"
+                    />
+
+                <TextView
+                    android:id="@+id/tvreturnDateRange"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/tvreturnDate"
+                    android:textSize="16sp"
+                    android:text="Date Range"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="25dp"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toBottomOf="@id/etreturnSearch"
+                    />
+
+                <TextView
+                    android:id="@+id/tvreturnTodayDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="15sp"
+                    android:text="04 Sep 2022"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:drawablePadding="10dp"
+                    android:layout_marginStart="10dp"
+                    android:drawableStart="@drawable/baseline_calendar_month_24"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toBottomOf="@id/tvreturnDate"
+                    />
+
+                <TextView
+                    android:id="@+id/tvReturnTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="To"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvreturnDate"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="25dp"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvreturnSelectDateRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="15sp"
+                    android:text="04 Sep 2022"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:drawablePadding="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:drawableStart="@drawable/baseline_calendar_month_24"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toBottomOf="@id/tvreturnDate"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tvreturnTodayDate"
+                    android:text="No data found"
+                    android:textStyle="normal"
+                    android:textColor="@color/text_Gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvreturnDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tvreturnTodayDate"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintReceive"
+        app:layout_constraintTop_toBottomOf="@id/constraintReturn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvReceive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:text="Receive"
+        android:textStyle="normal"
+        android:backgroundTint="@color/white"
+        android:padding="14dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="15dp"
+        android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+        android:background="@drawable/search_box"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/receiveCardView"
+            app:cardCornerRadius="8dp"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:backgroundTint="@color/card_background_color"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/receiveBox"
+                    android:layout_width="match_parent"
+                    android:backgroundTint="@color/light_blue"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tvreceiveDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textSize="18sp"
+                        android:text="Receive: "
+                        android:paddingVertical="12dp"
+                        android:paddingStart="14dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvreceiveTotalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@id/tvreceiveDetails"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textSize="18sp"
+                        android:text="₹ 35245"
+                        android:paddingVertical="14dp"
+                        android:textStyle="bold"
+                        android:textColor="#BADAF3"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginEnd="14dp"
+                        android:layout_marginTop="14dp"
+                        android:src="@drawable/up_arrow"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <EditText
+                    android:id="@+id/etreceiveSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Search Name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/baseline_search_24"
+                    android:background="@drawable/search_box"
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/receiveBox"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/tvreceiveDate"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="16sp"
+                    android:text="Date"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/search_box"
+                    android:backgroundTint="@color/light_blue"
+                    app:layout_constraintTop_toBottomOf="@id/etreceiveSearch"
+                    />
+
+                <TextView
+                    android:id="@+id/tvreceiveDateRange"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/tvreceiveDate"
+                    android:textSize="16sp"
+                    android:text="Date Range"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="25dp"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toBottomOf="@id/etreceiveSearch"
+                    />
+
+                <TextView
+                    android:id="@+id/tvreceiveTodayDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="15sp"
+                    android:text="04 Sep 2022"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:drawablePadding="10dp"
+                    android:layout_marginStart="10dp"
+                    android:drawableStart="@drawable/baseline_calendar_month_24"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toBottomOf="@id/tvreceiveDate"
+                    />
+
+                <TextView
+                    android:id="@+id/tvReceiveTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="To"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvreceiveDate"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="25dp"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvreceiveSelectDateRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="15sp"
+                    android:text="04 Sep 2022"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:drawablePadding="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:drawableStart="@drawable/baseline_calendar_month_24"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toBottomOf="@id/tvreceiveDate"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tvreceiveTodayDate"
+                    android:text="No data found"
+                    android:textStyle="normal"
+                    android:textColor="@color/text_Gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvreceiveDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tvreceiveTodayDate"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintDue"
+        app:layout_constraintTop_toBottomOf="@id/constraintReceive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tvDue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:text="Due"
+        android:textStyle="normal"
+        android:padding="14dp"
+        android:textColor="@color/black"
+        android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+        android:layout_marginHorizontal="15dp"
+        android:backgroundTint="@color/white"
+        android:inputType="number"
+        android:background="@drawable/search_box"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/dueCardView"
+            app:cardCornerRadius="8dp"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:backgroundTint="@color/card_background_color"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/dueBox"
+                    android:layout_width="match_parent"
+                    android:backgroundTint="@color/light_blue"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tvdueDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textSize="18sp"
+                        android:text="Due: "
+                        android:paddingVertical="12dp"
+                        android:paddingStart="14dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvdueTotalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@id/tvdueDetails"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textSize="18sp"
+                        android:text="₹ 35245"
+                        android:paddingVertical="14dp"
+                        android:textStyle="bold"
+                        android:textColor="#BADAF3"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginEnd="14dp"
+                        android:layout_marginTop="14dp"
+                        android:src="@drawable/up_arrow"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <EditText
+                    android:id="@+id/etdueSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Search Name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/baseline_search_24"
+                    android:background="@drawable/search_box"
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dueBox"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/tvdueDate"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="16sp"
+                    android:text="Date"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/search_box"
+                    android:backgroundTint="@color/light_blue"
+                    app:layout_constraintTop_toBottomOf="@id/etdueSearch"
+                    />
+
+                <TextView
+                    android:id="@+id/tvdueDateRange"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/tvdueDate"
+                    android:textSize="16sp"
+                    android:text="Date Range"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="25dp"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toBottomOf="@id/etdueSearch"
+                    />
+
+                <TextView
+                    android:id="@+id/tvdueTodayDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="15sp"
+                    android:text="04 Sep 2022"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:drawablePadding="10dp"
+                    android:layout_marginStart="10dp"
+                    android:drawableStart="@drawable/baseline_calendar_month_24"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toBottomOf="@id/tvdueDate"
+                    />
+
+                <TextView
+                    android:id="@+id/tvDueTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="To"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvdueDate"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="25dp"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvdueSelectDateRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="15sp"
+                    android:text="04 Sep 2022"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:drawablePadding="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:drawableStart="@drawable/baseline_calendar_month_24"
+                    android:background="@drawable/search_box"
+                    app:layout_constraintTop_toBottomOf="@id/tvdueDate"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tvdueTodayDate"
+                    android:text="No data found"
+                    android:textStyle="normal"
+                    android:textColor="@color/text_Gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvdueDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tvdueTodayDate"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

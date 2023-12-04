@@ -83,6 +83,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:scaleType="centerCrop"
+                android:clickable="false"
+                android:focusable="false"
                 android:src="@drawable/profile_icon" />
 
         </androidx.cardview.widget.CardView>
@@ -196,5 +198,16 @@
         android:focusableInTouchMode="false"
         android:textColor="@color/black"
         android:hint="Password"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:indeterminateTint="@color/light_blue"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

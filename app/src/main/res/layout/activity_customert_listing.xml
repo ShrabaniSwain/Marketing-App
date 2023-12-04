@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="15dp"
+            android:visibility="gone"
             android:src="@drawable/baseline_share_24"/>
 
     </androidx.appcompat.widget.Toolbar>
@@ -65,5 +66,17 @@
         app:tint="@android:color/white"
         android:backgroundTint="@color/light_blue"
         android:layout_margin="15dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:indeterminateTint="@color/light_blue"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

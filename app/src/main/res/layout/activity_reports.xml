@@ -37,14 +37,6 @@
             android:textColor="@color/light_blue"
             android:textSize="22sp"/>
 
-        <ImageView
-            android:id="@+id/ivShare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="15dp"
-            android:src="@drawable/baseline_person_24"/>
-
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -146,6 +138,7 @@
                 android:background="@drawable/search_box"
                 android:textSize="16sp"
                 android:padding="10dp"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/saleBox"
@@ -153,12 +146,12 @@
                 android:layout_marginTop="10dp"/>
 
             <TextView
-                android:id="@+id/tvSaleDate"
+                android:id="@+id/tvSaleDateRange"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textSize="16sp"
-                android:text="Date"
+                android:text="Date Range"
                 android:gravity="center"
                 android:padding="12dp"
                 android:textStyle="bold"
@@ -170,22 +163,22 @@
                 app:layout_constraintTop_toBottomOf="@id/etSearch"
                 />
 
-            <TextView
-                android:id="@+id/tvSaleDateRange"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@id/tvSaleDate"
-                android:textSize="16sp"
-                android:text="Date Range"
-                android:gravity="center"
-                android:padding="12dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="25dp"
-                android:background="@drawable/search_box"
-                app:layout_constraintTop_toBottomOf="@id/etSearch"
-                />
+<!--            <TextView-->
+<!--                android:id="@+id/tvSaleDateRange"-->
+<!--                android:layout_width="125dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintLeft_toRightOf="@id/tvSaleDate"-->
+<!--                android:textSize="16sp"-->
+<!--                android:text="Date Range"-->
+<!--                android:gravity="center"-->
+<!--                android:padding="12dp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_marginStart="25dp"-->
+<!--                android:background="@drawable/search_box"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/etSearch"-->
+<!--                />-->
 
             <TextView
                 android:id="@+id/tvSaleTodayDate"
@@ -193,7 +186,6 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textSize="15sp"
-                android:text="04 Sep 2022"
                 android:gravity="center"
                 android:padding="10dp"
                 android:textStyle="bold"
@@ -203,7 +195,7 @@
                 android:layout_marginStart="10dp"
                 android:drawableStart="@drawable/baseline_calendar_month_24"
                 android:background="@drawable/search_box"
-                app:layout_constraintTop_toBottomOf="@id/tvSaleDate"
+                app:layout_constraintTop_toBottomOf="@id/tvSaleDateRange"
                 />
 
             <TextView
@@ -211,10 +203,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="To"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSaleDate"
+                app:layout_constraintTop_toBottomOf="@id/tvSaleDateRange"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_marginTop="25dp"
@@ -226,8 +218,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:textSize="15sp"
-                android:visibility="gone"
-                android:text="04 Sep 2022"
+                android:visibility="visible"
                 android:gravity="center"
                 android:padding="10dp"
                 android:textStyle="bold"
@@ -237,16 +228,18 @@
                 android:layout_marginEnd="10dp"
                 android:drawableStart="@drawable/baseline_calendar_month_24"
                 android:background="@drawable/search_box"
-                app:layout_constraintTop_toBottomOf="@id/tvSaleDate"
+                app:layout_constraintTop_toBottomOf="@id/tvSaleDateRange"
                 />
 
             <TextView
+                android:id="@+id/noData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/tvSaleTodayDate"
                 android:text="No data found"
-                android:textStyle="normal"
-                android:textColor="@color/text_Gray"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/light_blue"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:visibility="gone"
@@ -257,7 +250,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSalesDetails"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="170dp"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/tvSaleTodayDate"
@@ -373,6 +366,7 @@
                     android:background="@drawable/search_box"
                     android:textSize="16sp"
                     android:padding="10dp"
+                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/stockBox"
@@ -380,12 +374,12 @@
                     android:layout_marginTop="10dp"/>
 
                 <TextView
-                    android:id="@+id/tvstockDate"
+                    android:id="@+id/tvstockDateRange"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="16sp"
-                    android:text="Date"
+                    android:text="Date Range"
                     android:gravity="center"
                     android:padding="12dp"
                     android:textStyle="bold"
@@ -398,29 +392,11 @@
                     />
 
                 <TextView
-                    android:id="@+id/tvstockDateRange"
-                    android:layout_width="125dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tvstockDate"
-                    android:textSize="16sp"
-                    android:text="Date Range"
-                    android:gravity="center"
-                    android:padding="12dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="25dp"
-                    android:background="@drawable/search_box"
-                    app:layout_constraintTop_toBottomOf="@id/etstockSearch"
-                    />
-
-                <TextView
                     android:id="@+id/tvstockTodayDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="15sp"
-                    android:text="04 Sep 2022"
                     android:gravity="center"
                     android:padding="10dp"
                     android:textStyle="bold"
@@ -430,7 +406,7 @@
                     android:layout_marginStart="10dp"
                     android:drawableStart="@drawable/baseline_calendar_month_24"
                     android:background="@drawable/search_box"
-                    app:layout_constraintTop_toBottomOf="@id/tvstockDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvstockDateRange"
                     />
 
                 <TextView
@@ -438,10 +414,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="To"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvstockDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvstockDateRange"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_marginTop="25dp"
@@ -453,8 +429,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:textSize="15sp"
-                    android:text="04 Sep 2022"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:gravity="center"
                     android:padding="10dp"
                     android:textStyle="bold"
@@ -464,16 +439,18 @@
                     android:layout_marginEnd="10dp"
                     android:drawableStart="@drawable/baseline_calendar_month_24"
                     android:background="@drawable/search_box"
-                    app:layout_constraintTop_toBottomOf="@id/tvstockDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvstockDateRange"
                     />
 
                 <TextView
+                    android:id="@+id/stockNoData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/tvstockTodayDate"
                     android:text="No data found"
-                    android:textStyle="normal"
-                    android:textColor="@color/text_Gray"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/light_blue"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:visibility="gone"
@@ -484,7 +461,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvstockDetails"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="170dp"
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/tvstockTodayDate"
@@ -600,6 +577,7 @@
                     android:background="@drawable/search_box"
                     android:textSize="16sp"
                     android:padding="10dp"
+                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/returnBox"
@@ -607,12 +585,12 @@
                     android:layout_marginTop="10dp"/>
 
                 <TextView
-                    android:id="@+id/tvreturnDate"
+                    android:id="@+id/tvreturnDateRange"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="16sp"
-                    android:text="Date"
+                    android:text="Date Range"
                     android:gravity="center"
                     android:padding="12dp"
                     android:textStyle="bold"
@@ -625,29 +603,11 @@
                     />
 
                 <TextView
-                    android:id="@+id/tvreturnDateRange"
-                    android:layout_width="125dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tvreturnDate"
-                    android:textSize="16sp"
-                    android:text="Date Range"
-                    android:gravity="center"
-                    android:padding="12dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="25dp"
-                    android:background="@drawable/search_box"
-                    app:layout_constraintTop_toBottomOf="@id/etreturnSearch"
-                    />
-
-                <TextView
                     android:id="@+id/tvreturnTodayDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="15sp"
-                    android:text="04 Sep 2022"
                     android:gravity="center"
                     android:padding="10dp"
                     android:textStyle="bold"
@@ -657,7 +617,7 @@
                     android:layout_marginStart="10dp"
                     android:drawableStart="@drawable/baseline_calendar_month_24"
                     android:background="@drawable/search_box"
-                    app:layout_constraintTop_toBottomOf="@id/tvreturnDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvreturnDateRange"
                     />
 
                 <TextView
@@ -665,10 +625,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="To"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvreturnDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvreturnDateRange"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_marginTop="25dp"
@@ -680,8 +640,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:textSize="15sp"
-                    android:text="04 Sep 2022"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:gravity="center"
                     android:padding="10dp"
                     android:textStyle="bold"
@@ -691,16 +650,18 @@
                     android:layout_marginEnd="10dp"
                     android:drawableStart="@drawable/baseline_calendar_month_24"
                     android:background="@drawable/search_box"
-                    app:layout_constraintTop_toBottomOf="@id/tvreturnDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvreturnDateRange"
                     />
 
                 <TextView
+                    android:id="@+id/tvReturnNoData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/tvreturnTodayDate"
                     android:text="No data found"
-                    android:textStyle="normal"
-                    android:textColor="@color/text_Gray"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/light_blue"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:visibility="gone"
@@ -711,7 +672,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvreturnDetails"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="170dp"
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/tvreturnTodayDate"
@@ -826,6 +787,7 @@
                     android:drawableStart="@drawable/baseline_search_24"
                     android:background="@drawable/search_box"
                     android:textSize="16sp"
+                    android:visibility="gone"
                     android:padding="10dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -834,12 +796,12 @@
                     android:layout_marginTop="10dp"/>
 
                 <TextView
-                    android:id="@+id/tvreceiveDate"
+                    android:id="@+id/tvreceiveDateRange"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="16sp"
-                    android:text="Date"
+                    android:text="Date Range"
                     android:gravity="center"
                     android:padding="12dp"
                     android:textStyle="bold"
@@ -852,29 +814,11 @@
                     />
 
                 <TextView
-                    android:id="@+id/tvreceiveDateRange"
-                    android:layout_width="125dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tvreceiveDate"
-                    android:textSize="16sp"
-                    android:text="Date Range"
-                    android:gravity="center"
-                    android:padding="12dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="25dp"
-                    android:background="@drawable/search_box"
-                    app:layout_constraintTop_toBottomOf="@id/etreceiveSearch"
-                    />
-
-                <TextView
                     android:id="@+id/tvreceiveTodayDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="15sp"
-                    android:text="04 Sep 2022"
                     android:gravity="center"
                     android:padding="10dp"
                     android:textStyle="bold"
@@ -884,7 +828,7 @@
                     android:layout_marginStart="10dp"
                     android:drawableStart="@drawable/baseline_calendar_month_24"
                     android:background="@drawable/search_box"
-                    app:layout_constraintTop_toBottomOf="@id/tvreceiveDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvreceiveDateRange"
                     />
 
                 <TextView
@@ -892,10 +836,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="To"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvreceiveDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvreceiveDateRange"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_marginTop="25dp"
@@ -907,8 +851,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:textSize="15sp"
-                    android:text="04 Sep 2022"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:gravity="center"
                     android:padding="10dp"
                     android:textStyle="bold"
@@ -918,16 +861,18 @@
                     android:layout_marginEnd="10dp"
                     android:drawableStart="@drawable/baseline_calendar_month_24"
                     android:background="@drawable/search_box"
-                    app:layout_constraintTop_toBottomOf="@id/tvreceiveDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvreceiveDateRange"
                     />
 
                 <TextView
+                    android:id="@+id/receiveNoData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/tvreceiveTodayDate"
                     android:text="No data found"
-                    android:textStyle="normal"
-                    android:textColor="@color/text_Gray"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/light_blue"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:visibility="gone"
@@ -938,7 +883,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvreceiveDetails"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="170dp"
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/tvreceiveTodayDate"
@@ -1056,6 +1001,7 @@
                     android:background="@drawable/search_box"
                     android:textSize="16sp"
                     android:padding="10dp"
+                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/dueBox"
@@ -1063,12 +1009,12 @@
                     android:layout_marginTop="10dp"/>
 
                 <TextView
-                    android:id="@+id/tvdueDate"
+                    android:id="@+id/tvdueDateRange"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="16sp"
-                    android:text="Date"
+                    android:text="Date Range"
                     android:gravity="center"
                     android:padding="12dp"
                     android:textStyle="bold"
@@ -1081,29 +1027,11 @@
                     />
 
                 <TextView
-                    android:id="@+id/tvdueDateRange"
-                    android:layout_width="125dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tvdueDate"
-                    android:textSize="16sp"
-                    android:text="Date Range"
-                    android:gravity="center"
-                    android:padding="12dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="25dp"
-                    android:background="@drawable/search_box"
-                    app:layout_constraintTop_toBottomOf="@id/etdueSearch"
-                    />
-
-                <TextView
                     android:id="@+id/tvdueTodayDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="15sp"
-                    android:text="04 Sep 2022"
                     android:gravity="center"
                     android:padding="10dp"
                     android:textStyle="bold"
@@ -1113,7 +1041,7 @@
                     android:layout_marginStart="10dp"
                     android:drawableStart="@drawable/baseline_calendar_month_24"
                     android:background="@drawable/search_box"
-                    app:layout_constraintTop_toBottomOf="@id/tvdueDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvdueDateRange"
                     />
 
                 <TextView
@@ -1121,10 +1049,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="To"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvdueDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvdueDateRange"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_marginTop="25dp"
@@ -1136,8 +1064,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:textSize="15sp"
-                    android:text="04 Sep 2022"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:gravity="center"
                     android:padding="10dp"
                     android:textStyle="bold"
@@ -1147,16 +1074,18 @@
                     android:layout_marginEnd="10dp"
                     android:drawableStart="@drawable/baseline_calendar_month_24"
                     android:background="@drawable/search_box"
-                    app:layout_constraintTop_toBottomOf="@id/tvdueDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvdueDateRange"
                     />
 
                 <TextView
+                    android:id="@+id/dueNoData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/tvdueTodayDate"
                     android:text="No data found"
-                    android:textStyle="normal"
-                    android:textColor="@color/text_Gray"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/light_blue"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:visibility="gone"
@@ -1167,7 +1096,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvdueDetails"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="170dp"
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/tvdueTodayDate"

@@ -1,49 +1,40 @@
 package com.flyngener.marketing
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.flyngener.marketing.databinding.ItemStockDetailsBinding
+import com.flyngener.marketing.databinding.ItemStockReturnBinding
 
-class StockReturnAdapter() : RecyclerView.Adapter<StockReturnAdapter.CardViewHolder>() {
+class StockReturnAdapter(private val context: Context, private val returnReportItem: List<ReturnItem>) : RecyclerView.Adapter<StockReturnAdapter.CardViewHolder>() {
 
-    private val dummyDataList: List<String> = generateDummyData()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_stock_details, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_stock_return, parent, false)
         return CardViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
-        val item = dummyDataList[position]
+        val item = returnReportItem[position]
         holder.bind(item)
     }
 
     override fun getItemCount(): Int {
-        return dummyDataList.size
+        return returnReportItem.size
     }
 
     inner class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val binding = ItemStockDetailsBinding.bind(itemView)
+        private val binding = ItemStockReturnBinding.bind(itemView)
 
-        fun bind(item: String) {
-            binding.tvProductName.text = item
+        fun bind(item: ReturnItem) {
+                binding.tvItemName.text = item.product_name
+                binding.tvQnt.text = if (item.return_qty.isNullOrEmpty()) "0" else "${item.return_qty}"
+                binding.tvDate.text = item.return_date
+                binding.tvAmount.text = item.return_amount
         }
     }
 
-    private fun generateDummyData(): List<String> {
-        val dummyDataList = mutableListOf<String>()
-
-        dummyDataList.add("Face Wash")
-        dummyDataList.add("Saop")
-        dummyDataList.add("Shampoo")
-        dummyDataList.add("Conditioner")
-        dummyDataList.add("Cream")
-        dummyDataList.add("Alma Hair")
-        dummyDataList.add("Shampoo")
-        dummyDataList.add("Shampoo")
-
-        return dummyDataList
-    }
 }

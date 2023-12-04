@@ -37,12 +37,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:visibility="gone"
             android:layout_marginEnd="15dp"
             android:src="@drawable/baseline_share_24"/>
 
     </androidx.appcompat.widget.Toolbar>
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/etItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,7 +71,7 @@
         android:padding="15dp"
         android:textColor="@color/black"
         android:layout_marginStart="15dp"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:background="@drawable/border_color_change"/>
 
     <TextView
@@ -80,9 +81,12 @@
         app:layout_constraintTop_toBottomOf="@id/etItemName"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        android:textSize="18sp"
-        android:text="Unit"
-        android:padding="13dp"
+        android:textSize="17sp"
+        android:padding="14dp"
+        android:hint="Unit"
+        android:focusable="false"
+        android:clickable="false"
+        android:gravity="center"
         android:importantForAutofill="no"
         android:textCursorDrawable="@null"
         android:textColor="@color/black"
@@ -98,6 +102,8 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="20dp"
         android:textSize="18sp"
+        android:focusable="false"
+        android:clickable="false"
         android:hint="Rate(Price/Unit)"
         android:padding="15dp"
         android:textColor="@color/black"
@@ -113,7 +119,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         android:textSize="18sp"
-        android:text="With Tax"
+        android:text="Without Tax"
+        android:focusable="false"
+        android:clickable="false"
         android:padding="13dp"
         android:importantForAutofill="no"
         android:textCursorDrawable="@null"
@@ -199,9 +207,9 @@
         android:hint="0"
         android:textColor="@color/black"
         android:textSize="14sp"
+        android:inputType="numberDecimal"
         android:background="@drawable/border_color_change"
         android:textStyle="bold"
-        android:inputType="number"
         android:drawableEnd="@drawable/baseline_percent_24"
         android:padding="10dp" />
 
@@ -218,7 +226,6 @@
         android:textSize="14sp"
         android:background="@drawable/border_color_change"
         android:textStyle="bold"
-        android:inputType="numberDecimal"
         android:drawablePadding="10dp"
         android:drawableStart="@drawable/baseline_currency_rupee_24"
         android:padding="10dp" />
@@ -245,7 +252,7 @@
         android:layout_marginTop="15dp"
         android:textColor="@color/text_Gray"
         android:textSize="14sp"
-        android:text="GST@18%"
+        android:text="None"
         android:background="@drawable/search_box"
         android:textStyle="bold"
         android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
@@ -260,12 +267,13 @@
         android:layout_marginEnd="15dp"
         android:layout_marginTop="15dp"
         android:hint="0.00"
+        android:focusable="false"
+        android:clickable="false"
         android:textColor="@color/black"
         android:textSize="14sp"
         android:background="@drawable/search_box"
         android:textStyle="bold"
         android:drawablePadding="10dp"
-        android:inputType="numberDecimal"
         android:drawableStart="@drawable/baseline_currency_rupee_24"
         android:padding="10dp" />
 
@@ -283,7 +291,8 @@
             android:text="Total Amount:"/>
 
         <EditText
-            android:layout_width="100dp"
+            android:id="@+id/tvTotalPrice"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             app:layout_constraintEnd_toEndOf="parent"

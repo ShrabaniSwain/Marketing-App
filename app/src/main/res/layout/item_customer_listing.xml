@@ -48,7 +48,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvMobileTitle"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/tvDate"
@@ -60,7 +60,7 @@
             android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/tvMobileTitle"
             app:layout_constraintLeft_toRightOf="@id/tvDateTitle"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/tvMobileTitle"
@@ -97,10 +97,8 @@
             android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/tvMobileNo"
             app:layout_constraintRight_toLeftOf="@id/tvCredit"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="10dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/tvCredit"
@@ -113,7 +111,45 @@
             app:layout_constraintTop_toBottomOf="@id/tvMobileNo"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="10dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/ivEdit"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDate"
+            android:layout_marginEnd="10dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/baseline_edit_24"/>
+
+        <TextView
+            android:id="@+id/tvStateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="State: "
+            android:textStyle="bold"
+            android:textColor="@color/text_Gray"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tvDate"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tvState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginLeft="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDateTitle"
+            app:layout_constraintLeft_toRightOf="@id/tvDateTitle"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

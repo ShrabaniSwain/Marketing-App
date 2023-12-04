@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".UpdateSaleItem"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_color"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/background_color"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <ImageButton
+                    android:id="@+id/ibBack2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/baseline_arrow_back_24" />
+
+                <TextView
+                    android:id="@+id/tvSale"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="Update Sale"
+                    android:textStyle="bold"
+                    android:textColor="@color/light_blue"
+                    android:textSize="24sp" />
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <TextView
+                android:id="@+id/tvInvNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="15dp"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/text_Gray"
+                android:text="Invoice No." />
+
+            <EditText
+                android:id="@+id/etInvNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                app:layout_constraintLeft_toRightOf="@id/tvInvNo"
+                android:ems="5"
+                android:visibility="gone"
+                android:inputType="number"
+                android:textSize="16sp" />
+
+
+            <EditText
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="15dp"
+                android:drawableEnd="@drawable/baseline_calendar_month_24"
+                android:drawablePadding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                android:textSize="15sp"
+                android:importantForAutofill="no"
+                android:textCursorDrawable="@null"
+                android:enabled="true"
+                android:focusable="false"
+                android:hint="Date: dd mm yy" />
+
+            <View
+                android:id="@+id/vLine1"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                app:layout_constraintTop_toBottomOf="@id/tvDate"
+                android:layout_marginTop="10dp"
+                android:background="#C4C4C4" />
+
+            <AutoCompleteTextView
+                android:id="@+id/etCustomer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/vLine1"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/border_color_change"
+                android:hint="Customer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="13dp" />
+
+            <EditText
+                android:id="@+id/etContactNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/etCustomer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="15dp"
+                android:maxLength="10"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/border_color_change"
+                android:hint="Mobile Number"
+                android:inputType="number"
+                android:padding="13dp" />
+
+            <View
+                android:id="@+id/vLine"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                app:layout_constraintTop_toBottomOf="@id/etContactNo"
+                android:layout_marginTop="5dp"
+                android:background="#C4C4C4" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvItem"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/vLine"
+                android:layout_marginTop="10dp"/>
+
+            <View
+                android:id="@+id/vLine2"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                app:layout_constraintTop_toBottomOf="@id/rvItem"
+                android:layout_marginTop="10dp"
+                android:background="#C4C4C4" />
+
+            <TextView
+                android:id="@+id/btnAddItems2"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                app:layout_constraintTop_toBottomOf="@id/vLine2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:backgroundTint="#AEB6EC"
+                android:background="@drawable/search_box"
+                android:text="Add Items (Optional)"
+                android:textColor="@color/text_Gray" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvAmount2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/btnAddItems2"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:elevation="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="Total Amount"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"
+                            android:layout_marginStart="15dp"
+                            android:text="Received"
+                            android:textStyle="normal"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="Balance Due"
+                            android:textStyle="normal"
+                            android:textColor="@color/green"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:drawableStart="@drawable/baseline_currency_rupee_24"
+                            android:ems="6"
+                            android:inputType="number"
+                            android:textStyle="bold"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/paid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/baseline_currency_rupee_24"
+                            android:layout_marginEnd="10dp"
+                            android:ems="6"
+                            android:inputType="numberDecimal"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:drawableStart="@drawable/baseline_currency_rupee_24"
+                            android:ems="6"
+                            android:textColor="@color/green"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvPaymentType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cvAmount2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:text="Payment Type"
+                android:textSize="16sp"
+                android:textColor="@color/text_Gray" />
+
+            <TextView
+                android:id="@+id/tvCash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cvAmount2"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15sp"
+                android:layout_alignParentEnd="true"
+                android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+                android:textSize="18sp"
+                android:textColor="@color/black" />
+
+
+            <TextView
+                android:id="@+id/tvStateOfSupply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvCash"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="State Of Supply"
+                android:textSize="16sp"
+                android:textColor="@color/text_Gray" />
+
+            <TextView
+                android:id="@+id/tvSelectState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvCash"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="15sp"
+                android:layout_alignParentEnd="true"
+                android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+                android:text="Select State"
+                android:textSize="18sp"
+                android:textColor="@color/black" />
+
+            <View
+                android:id="@+id/vLine3"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                app:layout_constraintTop_toBottomOf="@id/tvSelectState"
+                android:layout_marginTop="8dp"
+                android:background="#C4C4C4" />
+
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:hint="Add Description"
+                app:layout_constraintTop_toBottomOf="@id/vLine3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="70dp"
+                android:layout_marginTop="15dp"
+                android:padding="15dp"
+                android:background="@drawable/border_color_change"
+                android:textColor="@color/black" />
+
+<!--            <ImageButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginEnd="15dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/vLine3"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:src="@drawable/baseline_camera_alt_24" />-->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+    <TextView
+        android:id="@+id/btnSave2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/light_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Save"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/white" />
+
+    <ImageButton
+        android:id="@+id/ivshare"
+        android:layout_width="80dp"
+        android:layout_height="51dp"
+        android:layout_gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/white"
+        android:visibility="gone"
+        android:src="@drawable/light_blue_share" />
+</androidx.constraintlayout.widget.ConstraintLayout>

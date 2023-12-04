@@ -1,50 +1,40 @@
 package com.flyngener.marketing
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.flyngener.marketing.databinding.ItemCustomerDetailsBinding
 import com.flyngener.marketing.databinding.ItemStockDetailsBinding
 
 
-class CustomerDeatilsAdapter() : RecyclerView.Adapter<CustomerDeatilsAdapter.CardViewHolder>() {
-
-    private val dummyDataList: List<String> = generateDummyData()
+class CustomerDeatilsAdapter(private val context: Context, private val saleProductItem: List<SaleProductList>) : RecyclerView.Adapter<CustomerDeatilsAdapter.CardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_stock_details, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_customer_details, parent, false)
         return CardViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
-        val item = dummyDataList[position]
+        val item = saleProductItem[position]
         holder.bind(item)
     }
 
     override fun getItemCount(): Int {
-        return dummyDataList.size
+        return saleProductItem.size
     }
 
     inner class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val binding = ItemStockDetailsBinding.bind(itemView)
+        private val binding = ItemCustomerDetailsBinding.bind(itemView)
 
-        fun bind(item: String) {
-            binding.tvProductName.text = item
+        fun bind(item: SaleProductList) {
+            binding.tvProductName.text = item.product_name
+            binding.tvSales.text = if (item.sale_price.isNullOrEmpty()) "₹0" else "₹${item.sale_price}"
+            binding.tvQnt.text = if (item.quantity.isNullOrEmpty()) "0" else "${item.quantity}"
+            val amountPrice = item.amount.toDoubleOrNull() ?: 0.0
+            binding.tvAmount.text = "₹${String.format("%.2f", amountPrice)}"
         }
     }
 
-    private fun generateDummyData(): List<String> {
-        val dummyDataList = mutableListOf<String>()
-
-        dummyDataList.add("Face Wash")
-        dummyDataList.add("Saop")
-        dummyDataList.add("Shampoo")
-        dummyDataList.add("Conditioner")
-        dummyDataList.add("Cream")
-        dummyDataList.add("Alma Hair")
-        dummyDataList.add("Shampoo")
-        dummyDataList.add("Shampoo")
-
-        return dummyDataList
-    }
 }

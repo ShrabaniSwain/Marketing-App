@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Customer Details"
+        android:text="Item Details"
         android:textStyle="bold"
         android:textColor="@color/light_blue"
         android:textSize="22sp"/>
@@ -46,12 +46,11 @@
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Shrabani"
         android:textColor="@color/red"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbarCustomerDetails"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="8dp"/>
 
@@ -63,7 +62,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintTop_toBottomOf="@id/toolbarCustomerDetails"
-        android:src="@drawable/baseline_print_24"/>
+        android:src="@drawable/baseline_download"/>
 
     <ImageView
         android:id="@+id/ivDelete"
@@ -71,6 +70,7 @@
         android:layout_height="30dp"
         app:layout_constraintRight_toLeftOf="@id/ivEdit"
         android:layout_marginTop="8dp"
+        android:visibility="gone"
         android:layout_marginEnd="10dp"
         app:layout_constraintTop_toBottomOf="@id/toolbarCustomerDetails"
         android:src="@drawable/baseline_delete_24"/>
@@ -101,7 +101,6 @@
         android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="20 July 2023"
         android:textColor="@color/text_Gray"
         app:layout_constraintLeft_toRightOf="@id/tvDateTitle"
         app:layout_constraintTop_toBottomOf="@id/tvName"
@@ -178,5 +177,16 @@
         android:layout_marginTop="15dp"
         android:layout_marginHorizontal="50dp"
         android:layout_marginBottom="10dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:indeterminateTint="@color/light_blue"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace 'com.flyngener.marketing'
+    namespace 'com.billing.marketing'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.flyngener.marketing"
+        applicationId "com.billing.marketing"
         minSdk 24
         targetSdk 33
         versionCode 2
-        versionName "1.2"
+        versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
